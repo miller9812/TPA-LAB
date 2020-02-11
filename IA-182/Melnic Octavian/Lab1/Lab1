@@ -1,0 +1,32 @@
+
+Var 8: Afisati de cate ori sunt repetate cuvintele care apar in textul dat.
+
+import java.util.Arrays;
+ 
+ 
+public class Main {
+    public static void main(String[] args) {
+        String word = "";
+        int index = 1;
+        String text = "Universitatea tehnica, tehnica, moldova, universitatea elev";
+        String[] words = text.toLowerCase().replaceAll("[,.!:?]", "").split("\\s");
+        Arrays.sort(words);
+        for (int i = 1; i < words.length; i++) {
+            if (words[i].equals(words[i - 1])) {
+                index++;
+            } else if (!words[i].equals(words[i - 1])) {
+                word = words[i - 1];
+                System.out.println("Cuvantul '" + word + "' se intalneste: " + index + " ori.");
+                index = 1;
+            }
+            word=words[i-1];
+        }
+        System.out.println("Cuvantul '" + word + "' se intalneste: " + index + " ori.");
+    }
+}
+
+
+Concluzie:
+Efectuand acest laborator am folosit clasa String care contine constructorii String (), 
+String (String str.), String (char [] c). Acesti constructori am folosit pentru a initializa obiectele din
+clasa si pentru a lucra cu siruri de caractere.
